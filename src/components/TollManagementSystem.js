@@ -1,36 +1,55 @@
-import React , {useState} from 'react'
+import React, {useState} from 'react';
 import './TollManagementSystem.css';
 
+function TollManagementSystem () {
+  //array of vehicle entries with objects
+  const [vehicleEntries, setVehicleEntries] = useState ([]);
 
+  //user input for new vehicle entry
+  const [newVehicleEntry, setNewVehicleEntry] = useState ({
+    //initial values for this object
+    vehicleNumber: '',
+    entryDate: '',
+    entryTime: '',
+  });
 
+  //array of tolls (string)
+  const [tolls, setTolls] = useState ([]);
 
-function TollManagementSystem() {
-    const [vehicleEntries, setVehicleEntries] = useState ([]);
-    const [newVehicleEntry, setNewVehicleEntry] = useState ({
+  //user input for new toll
+  const [newToll, setNewToll] = useState ('');
 
+  //Functions to handle Changes
+  const handleNewVehicleEntryChange = event => {
+    //updates newVehicleEntry using spread operator
+    setNewVehicleEntry ({
+      ...newVehicleEntry,
+      [event.target.name]: event.target.value,
+    });
+  };
 
-    })
+  //updates the toll value to a new value
+  const handleNewTollChange = event => {
+    setNewToll (event.target.value);
+  };
 
-    const [tolls, setTolls] = useState ([]);
-    const [newToll, setNewToll] = useState ('');
+  //adds new vehicle entries to array and resets the valus to initals
+  const handleNewVehicleEntrySubmit = event => {
+    event.preventDefault ();
+    setVehicleEntries ([...vehicleEntries, newVehicleEntry]);
+    setNewVehicleEntry ({
+      vehicleNumber: '',
+      entryDate: '',
+      entryTime: '',
+    });
+  };
 
-    const handleNewVehicleEntryChange = event => {
-
-    }
-
-    const handleNewTollChange = event => {
-
-    }
-
-    const handleNewVehicleEntrySubmit = event => {
-
-    }
-
-    const handleNewTollSubmit = event => {
-        
-    }
-
-
+  //adds new tolls to array and resets the values to initals
+  const handleNewTollSubmit = event => {
+    event.preventDefault ();
+    setTolls ([...tolls, newToll]);
+    setNewToll ('');
+  };
 
   return (
     <div>
@@ -106,7 +125,7 @@ function TollManagementSystem() {
         </tbody>
       </table>
     </div>
-  )
+  );
 }
 
-export default TollManagementSystem
+export default TollManagementSystem;
