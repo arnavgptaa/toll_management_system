@@ -133,10 +133,10 @@ function TollManagementSystem () {
                     name="vehicleType"
                     value={newVehicleEntry.vehicleType}
                   >
-                    <option value="carJeepVan">Car/Jeep/Van</option>
-                    <option value="lcv">LCV</option>
-                    <option value="truckBus">Truck/Bus</option>
-                    <option value="heavyVehicle">Heavy vehicle</option>
+                    <option value="Car/Jeep/Van">Car/Jeep/Van</option>
+                    <option value="LCV">LCV</option>
+                    <option value="Truck/Bus">Truck/Bus</option>
+                    <option value="Heavy vehicle">Heavy vehicle</option>
                   </select>
                 </label>
 
