@@ -2,6 +2,10 @@ import React, {useState} from 'react';
 import './TollManagementSystem.css';
 import Popup from './Popup';
 
+function getvehicleType (value) {
+  document.querySelector ('#vehicle_info input').value = value;
+}
+
 function TollManagementSystem () {
   //popup
   const [buttonPopupVehicle, setButtonPopupVehicle] = useState (false);
@@ -19,7 +23,7 @@ function TollManagementSystem () {
     entryDate: '',
     entryTime: '',
     tollName: '',
-    Tarrif: '',
+    Tariff: '',
   });
 
   //array of tolls (string)
@@ -52,7 +56,7 @@ function TollManagementSystem () {
       entryDate: '',
       entryTime: '',
       tollName: '',
-      Tarrif: '',
+      Tariff: '',
     });
   };
 
@@ -66,11 +70,16 @@ function TollManagementSystem () {
   return (
     <div>
       <div className="head">
+
+        {/* Heading */}
         <h1>Toll Management Application</h1>
 
         <div>
           <div className="top_btn">
 
+
+
+            {/* Add Vehicle Entry Form inside popup */}
             <Popup
               trigger={buttonPopupVehicle}
               setTrigger={setButtonPopupVehicle}
@@ -133,17 +142,19 @@ function TollManagementSystem () {
                     name="vehicleType"
                     value={newVehicleEntry.vehicleType}
                   >
-                    <option value="Car/Jeep/Van">Car/Jeep/Van</option>
-                    <option value="LCV">LCV</option>
-                    <option value="Truck/Bus">Truck/Bus</option>
-                    <option value="Heavy vehicle">Heavy vehicle</option>
-                  </select>
+
+                      <option value="100" selected>Car/Jeep/Van</option>
+                      <option value="150">LCV</option>
+                      <option value="200">Truck/Bus</option>
+                      <option value="500">Heavy vehicle</option>
+                    </select>
+        
                 </label>
 
                 <br />
 
                 <label>
-                  Entry Time:
+                  Entry Time*:
                   <br />
                   <input
                     className="field"
@@ -157,36 +168,28 @@ function TollManagementSystem () {
                 <br />
 
                 <label>
-                  Tarrif*:
+                  Tariff*:
                   <br />
                   <input
                     className="field"
-                    placeholder="Tarrif Amount"
+                    placeholder="Tariff Amount"
                     type="textfield"
-                    name="Tarrif"
-                    value={newVehicleEntry.Tarrif}
+                    name="Tariff"
+                    value={newVehicleEntry.Tariff}
                     onChange={handleNewVehicleEntryChange}
                   />
                 </label>
 
                 <br />
 
-                <button type="submit">Add Entry</button>
+                <button className='add_entry_btn' type="submit">Add Entry</button>
               </form>
             </Popup>
 
-            <Popup
-              trigger={buttonPopupAllTolls}
-              setTrigger={setButtonPopupAllTolls}
-            >
-              <div className="all_tolls_popup">
-                <h2>All Tolls</h2>
-                <ul>
-                  {tolls.map ((toll, index) => <li key={index}>{toll}</li>)}
-                </ul>
-              </div>
-            </Popup>
 
+
+
+            {/* Add New Toll Form inside popup */}
             <Popup trigger={buttonPopupToll} setTrigger={setButtonPopupToll}>
 
               <div className="add_new_toll">
@@ -206,7 +209,8 @@ function TollManagementSystem () {
                   </div>
                   <br />
 
-                  <div className="vehicle_fare_details">
+                  <div className="fare_details">
+
                     <div className="vehicle_car">
                       <select className="dropdown">
                         <option>Car/Jeep/Van</option>
@@ -215,8 +219,8 @@ function TollManagementSystem () {
                         <option>Heavy vehicle</option>
                       </select>
 
-                      <input type="text" placeholder="Single Journey" />
-                      <input type="text" placeholder="Return Journey" />
+                      <input className ="car_input" type="number" placeholder="Single Journey" />
+                      <input className ="car_input" type="number" placeholder="Return Journey" />
                     </div>
 
                     <div className="vehicle_car">
@@ -227,8 +231,8 @@ function TollManagementSystem () {
                         <option>Heavy vehicle</option>
                       </select>
 
-                      <input type="text" placeholder="Single Journey" />
-                      <input type="text" placeholder="Return Journey" />
+                      <input className ="car_input" type="number" placeholder="Single Journey" />
+                      <input className ="car_input" type="number" placeholder="Return Journey" />
                     </div>
 
                     <div className="vehicle_car">
@@ -239,8 +243,8 @@ function TollManagementSystem () {
                         <option>Heavy vehicle</option>
                       </select>
 
-                      <input type="text" placeholder="Single Journey" />
-                      <input type="text" placeholder="Return Journey" />
+                      <input className ="car_input" type="number" placeholder="Single Journey" />
+                      <input className ="car_input" type="number" placeholder="Return Journey" />
                     </div>
 
                     <div className="vehicle_car">
@@ -251,8 +255,8 @@ function TollManagementSystem () {
                         <option>Heavy vehicle</option>
                       </select>
 
-                      <input type="text" placeholder="Single Journey" />
-                      <input type="text" placeholder="Return Journey" />
+                      <input className ="car_input" type="number" placeholder="Single Journey" />
+                      <input className ="car_input" type="number" placeholder="Return Journey" />
                     </div>
                   </div>
 
@@ -263,15 +267,42 @@ function TollManagementSystem () {
               </div>
 
             </Popup>
+
+
+
+
+
+            {/* All Tolls list inside popup */}
+            <Popup
+              trigger={buttonPopupAllTolls}
+              setTrigger={setButtonPopupAllTolls}
+            >
+              <div className="all_tolls_popup">
+                <h2>All Tolls</h2>
+                <ol>
+                <li>Kappalur</li>
+                <li>Chengalpattu</li>
+                <li>Krishnagiri</li>
+                  {tolls.map ((toll, index) => <li key={index}>{toll}</li>)}
+                </ol>
+              </div>
+            </Popup>
+
+            
           </div>
         </div>
       </div>
 
+
+
       <div>
-
         <hr />
-
         <div className="subheading">
+
+
+
+
+          {/* Heading 2 ; below main heading*/}
           <div className="subhead_left">
             <h2 className="all_vehicle_entries">
               Toll Entries/Vehicle Entries
@@ -292,27 +323,31 @@ function TollManagementSystem () {
           </div>
 
         </div>
+
+
+
+
+
+        {/* Table where the data is added */}
         <table>
           <thead>
             <tr>
-
               <th>Vehicle Type</th>
               <th>Vehicle Number</th>
-              <th>Date</th>
-              <th>Time</th>
+              <th>Date/Time</th>
               <th>Toll Name</th>
-              <th>Tarrif</th>
+              <th>Tariff</th>
             </tr>
           </thead>
+
           <tbody>
             {vehicleEntries.map ((entry, index) => (
               <tr key={index}>
                 <td>{entry.vehicleType}</td>
                 <td>{entry.vehicleNumber}</td>
-                <td>{entry.entryDate}</td>
-                <td>{entry.entryTime}</td>
+                <td>{entry.entryDate} , {entry.entryTime}</td>
                 <td>{entry.tollName}</td>
-                <td>{entry.Tarrif}</td>
+                <td>{entry.Tariff}</td>
               </tr>
             ))}
           </tbody>

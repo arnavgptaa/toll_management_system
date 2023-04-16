@@ -7,6 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 .popup-inner {
     position: relative;
@@ -16,7 +17,7 @@
     border: solid 1px #000;
     background-color: #FFFF;
     height: 600px;
-    width: 400px;
+    width: 500px;
 }
 
 .popup-inner .close-btn {
@@ -24,3 +25,4 @@
     top: 16px;
     right: 16px
 }
+
