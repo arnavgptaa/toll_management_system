@@ -9,6 +9,98 @@ body {
   form {
     margin-bottom: 20px;
   }
+
+
+  .new_toll{
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+  .add_new_toll > h2{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toll_input{
+    display: flex;
+    width: 100%;
+    height: 30px;
+  }
+
+  .vehicle_car{
+    display: flex;
+    height: 30px;
+    width: 100%;
+  }
+
+  .dropdown{
+    margin-right: 10px;
+  }
+
+  .vehicle_fare_details{
+    margin: 10px 0 10px 0;
+  }
+
+  .add_toll_btn{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+
+  .top_btn{
+    display: flex;
+    padding-right: 30px;
+  }
+
+  .top_btn > button {
+    margin-right: 10px;
+  }
+
+  .all_tolls_popup > h2{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .all_vehicle_entries{
+    margin-left: 30px;
+  }
+
+  .field{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 3.5vh;
+  }
+
+  .subheading{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .subhead_left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .search{
+    margin-left: 10px;
+    width: 220px;
+    border-radius: 50px;
+}
   
   label {
     display: block;
@@ -66,4 +158,3 @@ body {
   li {
     margin-bottom: 5px;
   }
-  
